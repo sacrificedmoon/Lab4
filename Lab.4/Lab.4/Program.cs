@@ -1,18 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Lab._4
+namespace Lab4
 {
+    //Sofia Lindgren och Robin Nurmisto
     class Program
     {
         static void Main(string[] args)
         {
+            //testkod för att kontrollera player och monster
             Player player = new Player();
+            player.playerName = Console.ReadLine();
+            Console.WriteLine(player.PlayerInfo());
 
-            player.playerCurrentHealth = player.PlayerSTARTHEALTH;
+            Monster newMonster = new Monster();
+            Console.WriteLine(newMonster.monsterhealth + " " + newMonster.monsterMinDmg);
+
+            Console.ReadLine();
+            //Slut på testkod
+
         }
     }
 }
