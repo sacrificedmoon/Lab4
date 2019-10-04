@@ -1,12 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Lab._4
+namespace Lab4
 {
-    class Player : PlayerGameBase
-    { 
+
+    public class Player
+    {
+        public int playerhealth { get; set; }
+        public string playerName { get; set; }
+        public int playerMinDmg { get; set; }
+        public bool alive;
+
+        public Player()
+        {
+            this.playerhealth = 100;
+            playerMinDmg = 10;
+            alive = true;
+        }
+
+        public string PlayerInfo()
+        {
+            return String.Format("Welcome " + playerName + " prepare to ventuer down the evil dungen of whatevs");
+        }
+
+
+
     }
+
 }
