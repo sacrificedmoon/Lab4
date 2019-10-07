@@ -5,6 +5,10 @@ namespace Lab4
     //Sofia Lindgren och Robin Nurmisto
     class Program
     {
+        static void map()
+        {
+
+        }
         static void Main(string[] args)
         {
             //testkod för att kontrollera player och monster

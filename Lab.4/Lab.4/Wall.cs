@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lab._4
 {
-    class Wall
-    {
+    class Wall : Tiles
+    {  
+        public Wall()
+        {
+            ImageCharacter = Constants.WallImage;
+            this.Color = Constants.WallColor;
+        }
     }
 }

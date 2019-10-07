@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lab._4
 {
-    class Key
+    class Key : Tiles
     {
+        public Key()
+        {
+            ImageCharacter = Constants.KeyImage;
+            this.Color = Constants.KeyColor;
+        }
     }
 }

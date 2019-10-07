@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Lab._4
 {
-    class Door
+    class Door : Tiles
     {
+        public Door()
+        {
+            ImageCharacter = Constants.DoorImage;
+            this.Color = Constants.DoorColor;
+        }
     }
 }
