@@ -39,7 +39,7 @@ namespace Lab4
                 {
                     if (x >= 0 && y >= 0) // 0-based
                     {
-                        Console.Clear();
+                        //sätt den gammla positionen till blank, eller kartan 
                         Console.SetCursorPosition(x, y);
                         Console.Write(toWrite);
                         
