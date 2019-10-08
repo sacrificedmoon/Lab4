@@ -14,7 +14,7 @@ namespace Lab._4
         public static string PlayerImage = "@";
         public static string KeyImage = "K";
         public static string MonsterImage = "M";
-        
+
 
         public static ConsoleColor MonsterColor = ConsoleColor.Blue;
         public static ConsoleColor PlayerColor = ConsoleColor.Gray;

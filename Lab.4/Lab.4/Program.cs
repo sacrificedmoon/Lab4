@@ -4,6 +4,7 @@ using System.Threading;
 namespace Lab4
 {
     //Sofia Lindgren och Robin Nurmisto
+   
     class Program
     {
         static void map()
