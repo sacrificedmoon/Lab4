@@ -8,6 +8,7 @@ namespace Lab4
     {
         public int monsterhealth { get; set; }
         public int monsterMinDmg { get; set; }
+        public string monsterIcon { get; set; }
         public bool alive;
 
         public Monster()
@@ -17,6 +18,7 @@ namespace Lab4
             monsterhealth = r.Next(10, 30);
             monsterMinDmg = r.Next(2, 10);
             alive = true;
+            monsterIcon = "x";
         }
     }
 }

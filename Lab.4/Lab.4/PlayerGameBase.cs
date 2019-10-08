@@ -12,9 +12,6 @@ namespace Lab._4
         public int playerCurrentHealth;
         public bool playerIsAlive = true;
 
-        public PlayGameBase()
-        {
-
-        }
+        
     }
 }

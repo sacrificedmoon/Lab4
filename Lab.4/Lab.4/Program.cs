@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Lab4
 {
@@ -12,12 +13,20 @@ namespace Lab4
             player.playerName = Console.ReadLine();
             Console.WriteLine(player.PlayerInfo());
 
+            Console.WriteLine("asdasdasd");
+            player.Write();
+            
+
+
             Monster newMonster = new Monster();
             Console.WriteLine(newMonster.monsterhealth + " " + newMonster.monsterMinDmg);
 
             Console.ReadLine();
             //Slut på testkod
 
+
+
         }
+
     }
 }
