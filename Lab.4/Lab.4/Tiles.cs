@@ -8,5 +8,14 @@ namespace Lab._4
 {
     class Tiles
     {
+        public string Name { get; set; }
+        public string ImageCharacter { get; set; }
+        public ConsoleColor Color { get; set; }
+
+        public Tiles()
+        {
+            ImageCharacter = Constants.TileImage;
+            Color = Constants.TileColor;
+        }
     }
 }
