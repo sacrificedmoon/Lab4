@@ -39,7 +39,6 @@ namespace Lab4
                 {
                     if (x >= 0 && y >= 0) // 0-based
                     {
-                        Console.Clear();
                         Console.SetCursorPosition(x, y);
                         Console.Write(toWrite);
                         
