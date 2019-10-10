@@ -12,17 +12,21 @@ namespace Lab._4
         static void Main(string[] args)
         {
             //testkod för att kontrollera player och monster
-            //Player player = new Player();
-            player.playerName = Console.ReadLine();
-            Console.WriteLine(player.PlayerInfo());
+            //Player player = new Player(1,1);
+            //player.playerName = Console.ReadLine();
+            //Console.WriteLine(player.PlayerInfo());
 
-            Monster newMonster = new Monster();
-            Console.WriteLine(newMonster.monsterhealth + " " + newMonster.monsterMinDmg);
+            //Monster newMonster = new Monster();
+            //Console.WriteLine(newMonster.monsterhealth + " " + newMonster.monsterMinDmg);
 
-            Console.ReadLine();
+            //Console.ReadLine();
             //Slut på testkod
-            DungeonMap RunGame = new DungeonMap();
-            Console.ReadLine();
+            var createMap = new DungeonMap();
+            createMap.DungeonObjects();
+            createMap.printMap();
+            
+            Console.ReadKey(true);
         }
     }
+
 }

@@ -8,7 +8,10 @@ namespace Lab._4
 {
     public class Wall : Tiles
     {
-        public Wall(int xPos, int yPos) : base(xPos, yPos) { }
+        public Wall(int xPos, int yPos) : base(xPos, yPos)
+        {
+            Symbol = '#';
+        }
         public override void PrintCharToMap()
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;

@@ -14,6 +14,7 @@ namespace Lab._4
 
         public Player(int xPos, int yPos) : base(xPos, yPos) 
         {
+            Symbol = '@';
             this.playerhealth = 100;
             playerMinDmg = 10;
             alive = true;
@@ -79,7 +80,7 @@ namespace Lab._4
         //        }
         //        Write(toWrite, x, y);
         //    }
-        }
+        //}
 
     }
 

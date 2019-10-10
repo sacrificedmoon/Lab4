@@ -8,7 +8,10 @@ namespace Lab._4
 {
     public class Floor : Tiles
     {
-       public Floor(int xPos, int yPos) : base(xPos, yPos) { }
+       public Floor(int xPos, int yPos) : base(xPos, yPos)
+       {
+            Symbol = '.';
+        }
        public override void PrintCharToMap()
        {
          Console.ForegroundColor = ConsoleColor.Gray;
