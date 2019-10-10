@@ -68,7 +68,7 @@ namespace Lab._4
         {
             foreach (var tile in roomObjectList)
             {
-                Console.SetCursorPosition(tile.Xpos, tile.Ypos);
+                Console.SetCursorPosition(tile.Ypos, tile.Xpos);
                 Console.Write(tile.Symbol);
             }
         }

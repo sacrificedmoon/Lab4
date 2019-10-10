@@ -8,7 +8,7 @@ namespace Lab._4
 {
     public class Exit : Tiles
     {
-        public Exit(int xPos, int yPos) : base(xPos, yPos)
+        public Exit(int yPos, int xPos) : base(yPos, xPos)
         {
             Symbol = 'E';
         }

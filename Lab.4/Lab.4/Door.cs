@@ -8,7 +8,7 @@ namespace Lab._4
 {
     public class Door : Tiles
     {
-        public Door(int xPos, int yPos) : base(xPos, yPos)
+        public Door(int yPos, int xPos) : base(yPos, xPos)
         {
             Symbol = 'D';
         }

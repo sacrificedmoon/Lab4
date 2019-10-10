@@ -8,7 +8,7 @@ namespace Lab._4
 {
     class Key : Tiles
     {
-        public Key(int xPos, int yPos) : base(xPos, yPos)
+        public Key(int yPos, int xPos) : base(yPos, xPos)
         {
             Symbol = 'K';
         }

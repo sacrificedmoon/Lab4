@@ -12,7 +12,7 @@ namespace Lab._4
         public int playerMinDmg { get; set; }
         public bool alive;
 
-        public Player(int xPos, int yPos) : base(xPos, yPos) 
+        public Player(int yPos, int xPos) : base(yPos, xPos) 
         {
             Symbol = '@';
             this.playerhealth = 100;
