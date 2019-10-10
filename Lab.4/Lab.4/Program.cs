@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Lab._4;
+using System;
 using System.Threading;
 
-namespace Lab4
+namespace Lab._4
 {
     //Sofia Lindgren och Robin Nurmisto
    
@@ -13,12 +14,16 @@ namespace Lab4
         }
         static void Main(string[] args)
         {
+            Console.CursorVisible = false;
             //testkod för att kontrollera player och monster
             Player player = new Player();
             player.playerName = Console.ReadLine();
             Console.WriteLine(player.PlayerInfo());
 
             Console.WriteLine("asdasdasd");
+            Console.Clear();
+            DungeonMap map1 = new DungeonMap();
+            
             player.Write();
             
 
