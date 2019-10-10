@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab4
+namespace Lab._4
 {
     class Monster
     {

@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace Lab._4
 {
-    class Door : Tiles
+    public class Door : Tiles
     {
-        public Door()
-        {
-            ImageCharacter = Constants.DoorImage;
-            this.Color = Constants.DoorColor;
-        }
+        public Door(int xPos, int yPos) : base(xPos, yPos) { }
+            public override void PrintCharToMap()
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write("D");
+                Console.ResetColor();
+            } 
     }
+        
+            
+        
+    
 }
