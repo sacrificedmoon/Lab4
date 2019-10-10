@@ -6,16 +6,21 @@ using System.Threading.Tasks;
 
 namespace Lab._4
 {
-    class Tiles
+    public abstract class Tiles
     {
-        public string Name { get; set; }
-        public string ImageCharacter { get; set; }
-        public ConsoleColor Color { get; set; }
+        public int Xpos { get; set; }
+        public int Ypos { get; set; }
 
-        public Tiles()
+        protected Tiles(int xposition, int yposition)
         {
-            ImageCharacter = Constants.TileImage;
-            Color = Constants.TileColor;
+            Xpos = xposition;
+            Ypos = yposition;
+        }
+
+        public virtual void PrintCharToMap()
+        {
+            Console.Write("");
         }
     }
 }
+ 

@@ -8,61 +8,68 @@ namespace Lab._4
 {
     class DungeonMap
     {
-       public enum tiles { wall, door, monster, player, key};
+        public static List<Tiles> roomObjectList = new List<Tiles> { };
+        Player player = new Player(8, 1);
 
-        public DungeonMap()
+
+
+        string[,] dungeonmap = new string[,]
         {
+                { "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"},
+                { "#", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "#"},
+                { "#", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "#"},
+                { "#", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "#"},
+                { "#", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "#"},
+                { "#", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "#"},
+                { "#", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "#"},
+                { "#", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "#"},
+                { "#", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "#"},
+                { "#", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "#"},
+                { "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "E", "#", "#", "#"}
 
-            string[,] dungeonmap = new string[10, 20];
+        };
 
 
-            //try
-            //{
-            //    for (int i = 0; i < 21; i++)
-            //    {
+
+        public void DungeonObjects()
+        {
+            for (int y = 0; y < dungeonmap.GetLength(0); y++)
+            {
+                for (int x = 0; x < dungeonmap.GetLength(1); x++)
+                {
+                    int temp = dungeonmap.GetLength(1);
+                    if (dungeonmap[y, x] == "E")
+                    {
+                        roomObjectList.Add(new Exit(x, y));
+                        continue;
+                    }
                     
-            //        Console.SetCursorPosition(i, 0);
-            //        Console.Write("#");
+                    else if (dungeonmap[y, x] == "K")
+                    {
+                        roomObjectList.Add(new Key(x, y));
+                        continue;
+                    }
                     
-            //        if(i == 20)
-            //        {
-            //            for (int j = 0; j < 10; j++)
-            //            {
-            //                Console.SetCursorPosition(0, j);
-            //                Console.Write("#");
-            //                Console.SetCursorPosition(20, j);
-            //                Console.Write("#");
-            //            }
-
-            //            if(i == 20)
-            //            {
-            //                for (int k = 0; k <= 20; k++)
-            //                {
-            //                    Console.SetCursorPosition(k, 10);
-            //                    Console.Write("#");
-            //                    if (k > 0 && k < 19)
-            //                    {
-            //                        for (int l = 0; l <= k; l++)
-            //                        {
-            //                            Console.SetCursorPosition((1+l), 1);
-            //                            Console.Write("O");
-            //                        }
-            //                    }
-            //                }
-            //            }
-            //        }
-                    
-                    
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //}
-
+                    else if (dungeonmap[y, x] == "D")
+                    {
+                        roomObjectList.Add(new Door(x, y));
+                        continue;
+                    }
+                    else if (dungeonmap[y, x] == "#")
+                    {
+                        roomObjectList.Add(new Wall(x, y));
+                        continue;
+                    }
+                    else if (dungeonmap[y, x] == ".")
+                    {
+                        roomObjectList.Add(new Floor(x, y));
+                        continue;
+                    }
+                }
+            }
         }
-
-            
         
+
     }
 }
 

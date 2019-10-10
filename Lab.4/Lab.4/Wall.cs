@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace Lab._4
 {
-    class Wall : Tiles
-    {  
-        public Wall()
+    public class Wall : Tiles
+    {
+        public Wall(int xPos, int yPos) : base(xPos, yPos) { }
+        public override void PrintCharToMap()
         {
-            ImageCharacter = Constants.WallImage;
-            this.Color = Constants.WallColor;
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("#");
+            Console.ResetColor();
         }
+
     }
 }

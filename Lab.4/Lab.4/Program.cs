@@ -1,11 +1,8 @@
-﻿using Lab._4;
-using System;
-using System.Threading;
+﻿using System;
 
 namespace Lab._4
 {
     //Sofia Lindgren och Robin Nurmisto
-   
     class Program
     {
         static void map()
@@ -14,29 +11,18 @@ namespace Lab._4
         }
         static void Main(string[] args)
         {
-            Console.CursorVisible = false;
             //testkod för att kontrollera player och monster
-            Player player = new Player();
+            //Player player = new Player();
             player.playerName = Console.ReadLine();
             Console.WriteLine(player.PlayerInfo());
-
-            Console.WriteLine("asdasdasd");
-            Console.Clear();
-            DungeonMap map1 = new DungeonMap();
-            
-            player.Write();
-            
-
 
             Monster newMonster = new Monster();
             Console.WriteLine(newMonster.monsterhealth + " " + newMonster.monsterMinDmg);
 
             Console.ReadLine();
             //Slut på testkod
-
-
-
+            DungeonMap RunGame = new DungeonMap();
+            Console.ReadLine();
         }
-
     }
 }

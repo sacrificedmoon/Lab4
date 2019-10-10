@@ -8,10 +8,13 @@ namespace Lab._4
 {
     class Key : Tiles
     {
-        public Key()
+        public Key(int xPos, int yPos) : base(xPos, yPos)
+        {}
+        public override void PrintCharToMap()
         {
-            ImageCharacter = Constants.KeyImage;
-            this.Color = Constants.KeyColor;
+         Console.ForegroundColor = ConsoleColor.Blue;
+         Console.Write("K");
+         Console.ResetColor(); 
         }
     }
 }
