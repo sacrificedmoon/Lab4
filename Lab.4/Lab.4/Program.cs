@@ -24,6 +24,10 @@ namespace Lab._4
             var createMap = new DungeonMap();
             createMap.DungeonObjects();
             createMap.printMap();
+            createMap.CallPlayer();
+           
+
+            
             
             Console.ReadKey(true);
         }

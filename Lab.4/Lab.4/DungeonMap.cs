@@ -9,15 +9,15 @@ namespace Lab._4
     public class DungeonMap
     {
         public List<Tiles> roomObjectList = new List<Tiles> { };
-        Player player = new Player(1, 1);
+        Player player = new Player(1,1);
 
 
 
-        private char [,] dungeonmap = new char[,]
+        public  char  [,] dungeonmap =  new  char[,]
         {
                 { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
-                { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
+                { '#', '@', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
@@ -60,23 +60,38 @@ namespace Lab._4
                     {
                         roomObjectList.Add(new Floor(y, x));
                     }
+                    else if (dungeonmap[y,x] == '@')
+                    {
+                        roomObjectList.Add(new Player(y, x));
+                    }
                 }
             }
         }
 
-       public void printMap()
+        public void printMap()
         {
             foreach (var tile in roomObjectList)
             {
                 Console.SetCursorPosition(tile.Ypos, tile.Xpos);
                 Console.Write(tile.Symbol);
             }
+            //while (true)
+            //{
+            //    player.MovePlayer();
+            //}
+
         }
-        
+
+        public void CallPlayer()
+        {
+            while (true)
+            {
+                player.MovePlayer();
+                printMap();
+            }
             
-
-        
-
+        }
+       
     }
 }
 

@@ -1,87 +1,95 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Lab._4
 {
-
-    public class Player : Tiles
+    class Player : Tiles
     {
-        public int playerhealth { get; set; }
-        public string playerName { get; set; }
-        public int playerMinDmg { get; set; }
-        public bool alive;
-
+        public char PlayerIcon { get; set; }
+        public int numberOfMoves = 0;
+        public static int x = 1;
+        public static int y = 1;
+        public List<Key> playerInventoryKeys = new List<Key>();
+        
         public Player(int yPos, int xPos) : base(yPos, xPos) 
         {
-            Symbol = '@';
-            this.playerhealth = 100;
-            playerMinDmg = 10;
-            alive = true;
+            PlayerIcon = '@';
+
         }
-        public override void PrintCharToMap()
+
+        public void MovePlayer()
         {
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("@");
-            Console.ResetColor();
+            Ypos = y;
+            Xpos = x;
+            var PreviousPlayerYPos = Ypos;
+            var PreviousPlayerXPos = Xpos;
+           
+            var currentPlayerYPos = Ypos;
+            var currentPlayerXPos = Xpos;
+
+            Input();
+            var newPlayerYPos = Ypos;
+            var newPlayerXPos = Xpos;
+
+            currentPlayerYPos = newPlayerYPos;
+            currentPlayerXPos = newPlayerXPos;
+            //y = newPlayerYPos;
+            //x = newPlayerXPos;
+            //Console.SetCursorPosition(y, x);
+            //Console.WriteLine("@");
+            numberOfMoves++;
+            
+            
         }
-        public string PlayerInfo()
+
+        public static int Input()
         {
-            return String.Format("Welcome " + playerName + " prepare to ventuer down the evil dungeon of whatevs");
+            try
+            {
+                if (true)
+                {
+                    if (y >= 0 && x >= 0) // 0-based
+                    {
+
+                        Console.SetCursorPosition(y, x);
+                        Console.WriteLine('@');
+                        Console.SetCursorPosition(y, x);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+            var command = Console.ReadKey().Key;
+
+            switch (command)
+            {
+                case ConsoleKey.DownArrow:
+                    x++;
+                    return x;
+                case ConsoleKey.UpArrow:
+                    if (x > 0)
+                    {
+                        x--; 
+                    }
+                    return x;
+                case ConsoleKey.LeftArrow:
+                    if (y > 0)
+                    {
+                        y--;
+                    }
+                    return y;
+                case ConsoleKey.RightArrow:
+                    y++;
+                    return y;
+                default:
+                    return 0;
+ 
+            }
         }
-
-        //public void Write(char toWrite = playerIcon, int x = 0, int y = 0)
-        //{
-
-        //    try
-        //    {
-        //        if (alive == true)
-        //        {
-        //            if (x >= 0 && y >= 0) // 0-based
-        //            {
-        //                //sätt den gammla positionen till blank, eller kartan 
-        //                Console.SetCursorPosition(x, y);
-        //                Console.Write(toWrite);
-
-        //            }
-        //        }
-
-
-
-        //    }
-        //    catch (Exception)
-        //    {
-        //    }
-
-        //    while (true)
-        //    {
-        //        var command = Console.ReadKey().Key;
-
-        //        switch (command)
-        //        {
-        //            case ConsoleKey.DownArrow:
-        //                y++;
-        //                break;
-        //            case ConsoleKey.UpArrow:
-        //                if (y > 0)
-        //                {
-        //                    y--;
-        //                }
-        //                break;
-        //            case ConsoleKey.LeftArrow:
-        //                if (x > 0)
-        //                {
-        //                    x--;
-        //                }
-        //                break;
-        //            case ConsoleKey.RightArrow:
-        //                x++;
-        //                break;
-        //        }
-        //        Write(toWrite, x, y);
-        //    }
-        //}
-
     }
-
 }
