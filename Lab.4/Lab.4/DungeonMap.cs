@@ -72,14 +72,19 @@ namespace Lab._4
         {
             foreach (var tile in roomObjectList)
             {
-                Console.SetCursorPosition(tile.Ypos, tile.Xpos);
-                Console.Write(tile.Symbol);
-            }
-            //while (true)
-            //{
-            //    player.MovePlayer();
-            //}
+                if (player.Ypos == tile.Ypos + 1 | player.Ypos == tile.Ypos - 1 | player.Ypos == tile.Ypos && player.Xpos == tile.Xpos + 1 | player.Xpos == tile.Xpos - 1 | player.Xpos == tile.Xpos)
+                {
+                    tile.IsExplored = true;
+                }
 
+                if (tile.IsExplored == true)
+                {
+                    Console.SetCursorPosition(tile.Ypos, tile.Xpos);
+                    Console.Write(tile.Symbol);
+
+                }
+
+            }
         }
 
         public void CallPlayer()

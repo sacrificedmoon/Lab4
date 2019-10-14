@@ -23,7 +23,7 @@ namespace Lab._4
         {
             Player.HasKey = true;
             DungeonMap.roomObjectList.Remove(this);
-            DungeonMap.roomObjectList.Add(new Floor(Xpos, Ypos));
+            DungeonMap.roomObjectList.Add(new Floor(Xpos, Ypos, true));
             Console.WriteLine("You pick up a key.");
             Console.ReadKey(true);
         }
