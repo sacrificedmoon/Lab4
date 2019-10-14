@@ -23,41 +23,40 @@ namespace Lab._4
 
         public void MovePlayer()
         {
-            Ypos = y;
-            Xpos = x;
-            var PreviousPlayerYPos = Ypos;
-            var PreviousPlayerXPos = Xpos;
+            
+            //var PreviousPlayerYPos = y;
+            //var PreviousPlayerXPos = x;
            
-            var currentPlayerYPos = Ypos;
-            var currentPlayerXPos = Xpos;
+            y = Ypos;
+            x = Xpos;
 
             Input();
             var newPlayerYPos = Ypos;
             var newPlayerXPos = Xpos;
 
-            currentPlayerYPos = newPlayerYPos;
-            currentPlayerXPos = newPlayerXPos;
-            //y = newPlayerYPos;
-            //x = newPlayerXPos;
-            //Console.SetCursorPosition(y, x);
-            //Console.WriteLine("@");
+            y = newPlayerYPos;
+            x = newPlayerXPos;
+
             numberOfMoves++;
             
             
         }
 
-        public static int Input()
+        public int Input()
         {
             try
             {
                 if (true)
                 {
-                    if (y >= 0 && x >= 0) // 0-based
+                    if (Ypos >= 0 && Xpos >= 0) // 0-based
                     {
 
-                        Console.SetCursorPosition(y, x);
-                        Console.WriteLine('@');
-                        Console.SetCursorPosition(y, x);
+                        Console.SetCursorPosition(Ypos, Xpos);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(PlayerIcon);
+                        Console.ResetColor();
+                        Console.SetCursorPosition(Ypos, Xpos);
+                        
                     }
                 }
             }
@@ -69,23 +68,23 @@ namespace Lab._4
             switch (command)
             {
                 case ConsoleKey.DownArrow:
-                    x++;
-                    return x;
+                    Xpos++;
+                    return Xpos;
                 case ConsoleKey.UpArrow:
-                    if (x > 0)
+                    if (Xpos > 0)
                     {
-                        x--; 
+                        Xpos--; 
                     }
-                    return x;
+                    return Xpos;
                 case ConsoleKey.LeftArrow:
-                    if (y > 0)
+                    if (Ypos > 0)
                     {
-                        y--;
+                        Ypos--;
                     }
-                    return y;
+                    return Ypos;
                 case ConsoleKey.RightArrow:
-                    y++;
-                    return y;
+                    Ypos++;
+                    return Ypos;
                 default:
                     return 0;
  

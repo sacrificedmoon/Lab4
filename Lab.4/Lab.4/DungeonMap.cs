@@ -10,6 +10,7 @@ namespace Lab._4
     {
         public List<Tiles> roomObjectList = new List<Tiles> { };
         Player player = new Player(1,1);
+        
 
 
 
@@ -19,7 +20,7 @@ namespace Lab._4
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '@', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
-                { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
+                { '#', '.', '.', '.', '.', '.', '.', '.', 'K', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
@@ -72,13 +73,19 @@ namespace Lab._4
         {
             foreach (var tile in roomObjectList)
             {
-                Console.SetCursorPosition(tile.Ypos, tile.Xpos);
-                Console.Write(tile.Symbol);
+                if(player.Ypos == tile.Ypos +1 | player.Ypos == tile.Ypos -1 | player.Ypos == tile.Ypos && player.Xpos == tile.Xpos +1 | player.Xpos == tile.Xpos - 1 | player.Xpos == tile.Xpos)
+                {
+                    tile.isExplored = true;
+                }
+                
+                if (tile.isExplored == true)
+                {
+                    Console.SetCursorPosition(tile.Ypos, tile.Xpos);
+                    Console.Write(tile.Symbol);
+                    
+                }
+ 
             }
-            //while (true)
-            //{
-            //    player.MovePlayer();
-            //}
 
         }
 
