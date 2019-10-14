@@ -82,7 +82,7 @@ namespace Lab._4
 
         public void printMap()
         {
-            //Console.Clear();
+            
             foreach (var tile in roomObjectList)
             {
                 if (player.Ypos == tile.Ypos + 1 | player.Ypos == tile.Ypos + 2 | player.Ypos == tile.Ypos - 1 | player.Ypos == tile.Ypos - 2 | player.Ypos == tile.Ypos && player.Xpos == tile.Xpos + 1 | player.Xpos == tile.Xpos + 2 | player.Xpos == tile.Xpos - 1 | player.Xpos == tile.Xpos - 2 | player.Xpos == tile.Xpos)
@@ -148,7 +148,7 @@ namespace Lab._4
             switch (command)
             {
                 case ConsoleKey.DownArrow:
-                    if (player.Xpos < 9)
+                    if (GetTileObject(player.Xpos +1, player.Ypos).CanPass() == true)
                     {
                         player.Xpos++;
                     }
@@ -157,7 +157,7 @@ namespace Lab._4
                     return player.Xpos;
 
                 case ConsoleKey.UpArrow:
-                    if (player.Xpos > 1)
+                    if (GetTileObject(player.Xpos - 1, player.Ypos).CanPass() == true)
                     {
                         player.Xpos--;
                     }
@@ -167,7 +167,7 @@ namespace Lab._4
                     return player.Xpos;
 
                 case ConsoleKey.LeftArrow:
-                    if (player.Ypos > 1)
+                    if (GetTileObject(player.Xpos, player.Ypos - 1).CanPass() == true)
                     {
                         player.Ypos--;
                     }
@@ -177,7 +177,7 @@ namespace Lab._4
                     return player.Ypos;
 
                 case ConsoleKey.RightArrow:
-                    if (player.Ypos < 18)
+                    if (GetTileObject(player.Xpos, player.Ypos + 1).CanPass() == true)
                     {
                         player.Ypos++;
                     }

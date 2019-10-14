@@ -24,14 +24,15 @@ namespace Lab._4
             {
                 isOpen = true;
                 Player.HasKey = false;
+                Console.SetCursorPosition(0, 12);
                 Console.WriteLine("You unlock the door with your key");
             }
            
             Console.ReadKey(true);
         }
     }
-        
-            
-        
-    
+  
+
+
+
 }
