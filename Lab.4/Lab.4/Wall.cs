@@ -13,6 +13,9 @@ namespace Lab._4
             Symbol = '#';
             
         }
-        
+        public override bool CanPass()
+        {
+            return false;
+        }
     }
 }

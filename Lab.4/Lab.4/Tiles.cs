@@ -19,6 +19,10 @@ namespace Lab._4
             Ypos = yposition;
         }
 
+        public virtual bool CanPass()
+        {
+            return true;
+        }
     }
 }
  

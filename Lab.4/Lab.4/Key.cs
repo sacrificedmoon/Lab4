@@ -15,6 +15,7 @@ namespace Lab._4
        
         public void PlayerInteract()
         {
+            Console.SetCursorPosition(0, 11);
             Player.HasKey = true;
             DungeonMap.roomObjectList.Remove(this);
             DungeonMap.roomObjectList.Add(new Floor(Xpos, Ypos, true));
