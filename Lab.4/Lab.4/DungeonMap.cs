@@ -148,42 +148,41 @@ namespace Lab._4
             switch (command)
             {
                 case ConsoleKey.DownArrow:
-                    if (player.Xpos < 10)
+                    if (player.Xpos < 9)
                     {
                         player.Xpos++;
                     }
-                    if (GetTileObject(player.Xpos, player.Ypos + 1) is IInteractable)
-                        (GetTileObject(player.Xpos, player.Ypos + 1) as IInteractable).PlayerInteract();
-
+                    if (GetTileObject(player.Xpos, player.Ypos) is IInteractable)
+                        (GetTileObject(player.Xpos, player.Ypos) as IInteractable).PlayerInteract();
                     return player.Xpos;
 
                 case ConsoleKey.UpArrow:
-                    if (player.Xpos > 0)
+                    if (player.Xpos > 1)
                     {
                         player.Xpos--;
                     }
-                    if (GetTileObject(player.Xpos, player.Ypos - 1) is IInteractable)
-                        (GetTileObject(player.Xpos, player.Ypos - 1) as IInteractable).PlayerInteract();
+                    if (GetTileObject(player.Xpos, player.Ypos) is IInteractable)
+                        (GetTileObject(player.Xpos, player.Ypos) as IInteractable).PlayerInteract();
                     
                     return player.Xpos;
 
                 case ConsoleKey.LeftArrow:
-                    if (player.Ypos > 0)
+                    if (player.Ypos > 1)
                     {
                         player.Ypos--;
                     }
-                    if (GetTileObject(player.Xpos - 1, player.Ypos) is IInteractable)
-                        (GetTileObject(player.Xpos - 1, player.Ypos) as IInteractable).PlayerInteract();
+                    if (GetTileObject(player.Xpos, player.Ypos) is IInteractable)
+                        (GetTileObject(player.Xpos, player.Ypos) as IInteractable).PlayerInteract();
 
                     return player.Ypos;
 
                 case ConsoleKey.RightArrow:
-                    if (player.Ypos < 19)
+                    if (player.Ypos < 18)
                     {
                         player.Ypos++;
                     }
-                    if (GetTileObject(player.Xpos + 1, player.Ypos) is IInteractable)
-                        (GetTileObject(player.Xpos + 1, player.Ypos) as IInteractable).PlayerInteract();
+                    if (GetTileObject(player.Xpos, player.Ypos) is IInteractable)
+                        (GetTileObject(player.Xpos, player.Ypos) as IInteractable).PlayerInteract();
                    
                     return player.Ypos;
                 default:

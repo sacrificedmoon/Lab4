@@ -18,8 +18,12 @@ namespace Lab._4
             Player.HasKey = true;
             DungeonMap.roomObjectList.Remove(this);
             DungeonMap.roomObjectList.Add(new Floor(Xpos, Ypos, true));
+            Console.SetCursorPosition(0,12);
             Console.WriteLine("You pick up a key.");
             Console.ReadKey(true);
+            Console.Clear();
+            Console.SetCursorPosition(0, 11);
+            Console.WriteLine("K");
         }
     }
 }
