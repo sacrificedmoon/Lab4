@@ -8,8 +8,8 @@ namespace Lab._4
 {
     public class DungeonMap
     {
-        public List<Tiles> roomObjectList = new List<Tiles> { };
-        Player player = new Player(1,1);
+        public static List<Tiles> roomObjectList = new List<Tiles> { };
+        Player player = new Player(1,1, true);
 
 
 
@@ -17,7 +17,6 @@ namespace Lab._4
         {
                 { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
-                { '#', '@', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
@@ -25,7 +24,8 @@ namespace Lab._4
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
-                { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', 'E', '#', '#', '#'}
+                { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
+                { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'}
 
         };
 
@@ -40,29 +40,29 @@ namespace Lab._4
                     int temp = dungeonmap.GetLength(1);
                     if (dungeonmap[y, x] == 'E')
                     {
-                        roomObjectList.Add(new Exit(y, x));
+                        roomObjectList.Add(new Exit(y, x, false));
                     }
 
                     else if (dungeonmap[y, x] == 'K')
                     {
-                        roomObjectList.Add(new Key(y, x));
+                        roomObjectList.Add(new Key(y, x, false));
                     }
 
                     else if (dungeonmap[y, x] == 'D')
                     {
-                        roomObjectList.Add(new Door(y, x));
+                        roomObjectList.Add(new Door(y, x, false));
                     }
                     else if (dungeonmap[y, x] == '#')
                     {
-                        roomObjectList.Add(new Wall(y, x));
+                        roomObjectList.Add(new Wall(y, x, true));
                     }
                     else if (dungeonmap[y, x] == '.')
                     {
-                        roomObjectList.Add(new Floor(y, x));
+                        roomObjectList.Add(new Floor(y, x, false));
                     }
                     else if (dungeonmap[y,x] == '@')
                     {
-                        roomObjectList.Add(new Player(y, x));
+                        roomObjectList.Add(new Player(y, x, true));
                     }
                 }
             }

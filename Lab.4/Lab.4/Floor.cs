@@ -8,8 +8,8 @@ namespace Lab._4
 {
     public class Floor : Tiles
     {
-       public Floor(int yPos, int xPos) : base(yPos, xPos)
-       {
+       public Floor(int yPos, int xPos, bool explored) : base(yPos, xPos, explored)
+        {
             Symbol = '.';
         }
        public override void PrintCharToMap()

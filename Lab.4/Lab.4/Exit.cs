@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lab._4
 {
-    public class Exit : Tiles
+    public class Exit : Tiles, IInteractable
     {
-        public Exit(int yPos, int xPos) : base(yPos, xPos)
+        public Exit(int yPos, int xPos, bool explored) : base(yPos, xPos, explored)
         {
             Symbol = 'E';
         }
@@ -17,6 +17,11 @@ namespace Lab._4
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("E");
             Console.ResetColor();
+        }
+
+        public void PlayerInteract()
+        {
+
         }
     }
 }

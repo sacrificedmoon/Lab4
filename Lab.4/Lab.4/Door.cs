@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lab._4
 {
-    public class Door : Tiles
+    public class Door : Tiles, IInteractable
     {
-        public Door(int yPos, int xPos) : base(yPos, xPos)
+        public bool isOpen { get; private set; } = false;
+        public Door(int yPos, int xPos, bool explored) : base(yPos, xPos, explored)
         {
             Symbol = 'D';
         }
@@ -17,7 +18,22 @@ namespace Lab._4
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write("D");
                 Console.ResetColor();
-            } 
+            }
+
+        public void PlayerInteract()
+        {
+            if (isOpen == false && Player.HasKey)
+            {
+                isOpen = true;
+                Player.HasKey = false;
+                Console.WriteLine("You unlock the door with your key");
+            }
+            else if (Player.HasKey == false && isOpen == false)
+            {
+                Console.WriteLine("You need a key, look for a 'K' on the map!");
+            }
+            Console.ReadKey(true);
+        }
     }
         
             

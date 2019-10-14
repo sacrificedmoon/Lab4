@@ -10,15 +10,15 @@ namespace Lab._4
     class Player : Tiles
     {
         public char PlayerIcon { get; set; }
-        public int numberOfMoves = 0;
+        public static int numberOfMoves = 0;
         public static int x = 1;
         public static int y = 1;
         public List<Key> playerInventoryKeys = new List<Key>();
-        
-        public Player(int yPos, int xPos) : base(yPos, xPos) 
-        {
-            PlayerIcon = '@';
+        public static bool HasKey { get; set; } = false;
 
+        public Player(int yPos, int xPos, bool explored) : base(yPos, xPos, explored)
+        {
+            PlayerIcon = '@';            
         }
 
         public void MovePlayer()
