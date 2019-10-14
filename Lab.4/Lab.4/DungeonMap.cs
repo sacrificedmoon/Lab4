@@ -70,23 +70,38 @@ namespace Lab._4
 
         public void printMap()
         {
+            Console.Clear();
             foreach (var tile in roomObjectList)
             {
-                if (player.Ypos == tile.Ypos + 1 | player.Ypos == tile.Ypos - 1 | player.Ypos == tile.Ypos && player.Xpos == tile.Xpos + 1 | player.Xpos == tile.Xpos - 1 | player.Xpos == tile.Xpos)
+                if (player.Ypos == tile.Ypos + 1 | player.Ypos == tile.Ypos + 2 | player.Ypos == tile.Ypos - 1 | player.Ypos == tile.Ypos - 2 | player.Ypos == tile.Ypos && player.Xpos == tile.Xpos + 1 | player.Xpos == tile.Xpos + 2 | player.Xpos == tile.Xpos - 1 | player.Xpos == tile.Xpos - 2 | player.Xpos == tile.Xpos)
                 {
-                    tile.IsExplored = true;
+                    tile.IsExplored = true;                    
                 }
 
                 if (tile.IsExplored == true)
                 {
                     Console.SetCursorPosition(tile.Ypos, tile.Xpos);
-                    Console.Write(tile.Symbol);
-
+                    Console.Write(tile.Symbol);                    
                 }
-
+                else if(tile is Wall)
+                {
+                    Console.SetCursorPosition(tile.Ypos, tile.Xpos);
+                    Console.Write(tile.Symbol);
+                }
             }
         }
 
+        static public Tiles GetTileObject(int x, int y)
+        {
+            foreach (Tiles tile in roomObjectList)
+            {
+                if (tile.Xpos == x && tile.Ypos == y)
+                {
+                    return tile;
+                }
+            }
+            return null;
+        }
         public void CallPlayer()
         {
             while (true)

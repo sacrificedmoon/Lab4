@@ -11,6 +11,7 @@ namespace Lab._4
         public Wall(int yPos, int xPos, bool explored) : base(yPos, xPos, explored)
         {
             Symbol = '#';
+            
         }
         public override void PrintCharToMap()
         {

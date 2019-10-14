@@ -22,7 +22,7 @@ namespace Lab._4
         public virtual void PrintCharToMap()
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("-");
+            Console.Write(Symbol);
             Console.ResetColor();
         }
     }

@@ -26,7 +26,7 @@ namespace Lab._4
             
             //var PreviousPlayerYPos = y;
             //var PreviousPlayerXPos = x;
-           
+
             y = Ypos;
             x = Xpos;
 
@@ -68,7 +68,11 @@ namespace Lab._4
             switch (command)
             {
                 case ConsoleKey.DownArrow:
-                    Xpos++;
+                    if (Xpos < 10)
+                    {
+                        Xpos++;
+                    }
+                    
                     return Xpos;
                 case ConsoleKey.UpArrow:
                     if (Xpos > 0)
@@ -83,7 +87,11 @@ namespace Lab._4
                     }
                     return Ypos;
                 case ConsoleKey.RightArrow:
-                    Ypos++;
+                    if (Ypos < 19)
+                    {
+                        Ypos++;
+                    }
+                    
                     return Ypos;
                 default:
                     return 0;
