@@ -12,13 +12,7 @@ namespace Lab._4
         {
             Symbol = 'K';
         }
-        public override void PrintCharToMap()
-        {
-         Console.ForegroundColor = ConsoleColor.Blue;
-         Console.Write("K");
-         Console.ResetColor(); 
-        }
-
+       
         public void PlayerInteract()
         {
             Player.HasKey = true;

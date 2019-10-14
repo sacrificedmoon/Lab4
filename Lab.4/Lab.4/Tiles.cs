@@ -19,12 +19,6 @@ namespace Lab._4
             Ypos = yposition;
         }
 
-        public virtual void PrintCharToMap()
-        {
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write(Symbol);
-            Console.ResetColor();
-        }
     }
 }
  

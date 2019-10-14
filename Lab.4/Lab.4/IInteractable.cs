@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab._4
 {
-    interface IInteractable
+    public interface IInteractable
     {
         void PlayerInteract();
     }

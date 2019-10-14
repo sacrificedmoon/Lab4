@@ -21,82 +21,8 @@ namespace Lab._4
             PlayerIcon = '@';            
         }
 
-        public void MovePlayer()
-        {
-            
-            //var PreviousPlayerYPos = y;
-            //var PreviousPlayerXPos = x;
+        
 
-            y = Ypos;
-            x = Xpos;
-
-            Input();
-            var newPlayerYPos = Ypos;
-            var newPlayerXPos = Xpos;
-
-            y = newPlayerYPos;
-            x = newPlayerXPos;
-
-            numberOfMoves++;
-            
-            
-        }
-
-        public int Input()
-        {
-            try
-            {
-                if (true)
-                {
-                    if (Ypos >= 0 && Xpos >= 0) // 0-based
-                    {
-
-                        Console.SetCursorPosition(Ypos, Xpos);
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine(PlayerIcon);
-                        Console.ResetColor();
-                        Console.SetCursorPosition(Ypos, Xpos);
-                        
-                    }
-                }
-            }
-            catch (Exception)
-            {
-            }
-            var command = Console.ReadKey().Key;
-
-            switch (command)
-            {
-                case ConsoleKey.DownArrow:
-                    if (Xpos < 10)
-                    {
-                        Xpos++;
-                    }
-                    
-                    return Xpos;
-                case ConsoleKey.UpArrow:
-                    if (Xpos > 0)
-                    {
-                        Xpos--; 
-                    }
-                    return Xpos;
-                case ConsoleKey.LeftArrow:
-                    if (Ypos > 0)
-                    {
-                        Ypos--;
-                    }
-                    return Ypos;
-                case ConsoleKey.RightArrow:
-                    if (Ypos < 19)
-                    {
-                        Ypos++;
-                    }
-                    
-                    return Ypos;
-                default:
-                    return 0;
- 
-            }
-        }
+       
     }
 }

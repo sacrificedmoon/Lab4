@@ -18,8 +18,8 @@ namespace Lab._4
                 { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
-                { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
-                { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
+                { '#', '.', '.', '.', 'K', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
+                { '#', '.', 'D', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
                 { '#', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '#'},
@@ -68,9 +68,21 @@ namespace Lab._4
             }
         }
 
+        static public Tiles GetTileObject(int x, int y)
+        {
+            foreach (Tiles tile in roomObjectList)
+            {
+                if (tile.Xpos == x && tile.Ypos == y)
+                {
+                    return tile;
+                }
+            }
+            return null;
+        }
+
         public void printMap()
         {
-            Console.Clear();
+            //Console.Clear();
             foreach (var tile in roomObjectList)
             {
                 if (player.Ypos == tile.Ypos + 1 | player.Ypos == tile.Ypos + 2 | player.Ypos == tile.Ypos - 1 | player.Ypos == tile.Ypos - 2 | player.Ypos == tile.Ypos && player.Xpos == tile.Xpos + 1 | player.Xpos == tile.Xpos + 2 | player.Xpos == tile.Xpos - 1 | player.Xpos == tile.Xpos - 2 | player.Xpos == tile.Xpos)
@@ -90,23 +102,103 @@ namespace Lab._4
                 }
             }
         }
-
-        static public Tiles GetTileObject(int x, int y)
+        public void MovePlayer()
         {
-            foreach (Tiles tile in roomObjectList)
+            
+            //var PreviousPlayerYPos = y;
+            //var PreviousPlayerXPos = x;
+
+            Player.y = player.Ypos;
+            Player.x = player.Xpos;
+
+            Input();
+            var newPlayerYPos = player.Ypos;
+            var newPlayerXPos = player.Xpos;
+
+            Player.y = newPlayerYPos;
+            Player.x = newPlayerXPos;
+
+            Player.numberOfMoves++;
+            
+            
+        }
+        public int Input()
+        {
+            try
             {
-                if (tile.Xpos == x && tile.Ypos == y)
+                if (true)
                 {
-                    return tile;
+                    if (player.Ypos >= 0 && player.Xpos >= 0) // 0-based
+                    {
+
+                        Console.SetCursorPosition(player.Ypos, player.Xpos);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(player.PlayerIcon);
+                        Console.ResetColor();
+                        Console.SetCursorPosition(player.Ypos, player.Xpos);
+
+                    }
                 }
             }
-            return null;
+            catch (Exception)
+            {
+            }
+            var command = Console.ReadKey().Key;
+
+            switch (command)
+            {
+                case ConsoleKey.DownArrow:
+                    if (player.Xpos < 10)
+                    {
+                        player.Xpos++;
+                    }
+                    if (GetTileObject(player.Xpos, player.Ypos + 1) is IInteractable)
+                        (GetTileObject(player.Xpos, player.Ypos + 1) as IInteractable).PlayerInteract();
+
+                    return player.Xpos;
+
+                case ConsoleKey.UpArrow:
+                    if (player.Xpos > 0)
+                    {
+                        player.Xpos--;
+                    }
+                    if (GetTileObject(player.Xpos, player.Ypos - 1) is IInteractable)
+                        (GetTileObject(player.Xpos, player.Ypos - 1) as IInteractable).PlayerInteract();
+                    
+                    return player.Xpos;
+
+                case ConsoleKey.LeftArrow:
+                    if (player.Ypos > 0)
+                    {
+                        player.Ypos--;
+                    }
+                    if (GetTileObject(player.Xpos - 1, player.Ypos) is IInteractable)
+                        (GetTileObject(player.Xpos - 1, player.Ypos) as IInteractable).PlayerInteract();
+
+                    return player.Ypos;
+
+                case ConsoleKey.RightArrow:
+                    if (player.Ypos < 19)
+                    {
+                        player.Ypos++;
+                    }
+                    if (GetTileObject(player.Xpos + 1, player.Ypos) is IInteractable)
+                        (GetTileObject(player.Xpos + 1, player.Ypos) as IInteractable).PlayerInteract();
+                   
+                    return player.Ypos;
+                default:
+                    return 0;
+
+            }
         }
+
+
+
         public void CallPlayer()
         {
             while (true)
             {
-                player.MovePlayer();
+                MovePlayer();
                 printMap();
             }
             

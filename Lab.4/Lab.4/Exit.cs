@@ -12,12 +12,6 @@ namespace Lab._4
         {
             Symbol = 'E';
         }
-        public override void PrintCharToMap()
-        {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.Write("E");
-            Console.ResetColor();
-        }
 
         public void PlayerInteract()
         {

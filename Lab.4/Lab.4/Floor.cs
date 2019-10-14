@@ -12,12 +12,7 @@ namespace Lab._4
         {
             Symbol = '.';
         }
-       public override void PrintCharToMap()
-       {
-         Console.ForegroundColor = ConsoleColor.Gray;
-         Console.Write(".");
-         Console.ResetColor();
-       }
+      
         
     }
 }

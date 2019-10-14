@@ -13,13 +13,7 @@ namespace Lab._4
         {
             Symbol = 'D';
         }
-            public override void PrintCharToMap()
-            {
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write("D");
-                Console.ResetColor();
-            }
-
+         
         public void PlayerInteract()
         {
             if (isOpen == false && Player.HasKey)

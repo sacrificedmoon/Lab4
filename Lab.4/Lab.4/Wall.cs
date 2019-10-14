@@ -13,12 +13,6 @@ namespace Lab._4
             Symbol = '#';
             
         }
-        public override void PrintCharToMap()
-        {
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.Write("#");
-            Console.ResetColor();
-        }
-
+        
     }
 }
