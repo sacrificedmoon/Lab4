@@ -10,15 +10,13 @@ namespace Lab._4
     {
         public int Xpos { get; set; }
         public int Ypos { get; set; }
-
         public char Symbol { get; set; }
-        public bool isExplored = false;
+        public bool IsExplored { get; set; }
 
-        protected Tiles(int xposition, int yposition)
+        protected Tiles(int xposition, int yposition, bool explored)
         {
             Xpos = xposition;
             Ypos = yposition;
-
         }
 
         public virtual void PrintCharToMap()
@@ -26,7 +24,6 @@ namespace Lab._4
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("-");
             Console.ResetColor();
-
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Lab._4
 {
     public class Wall : Tiles
     {
-        public Wall(int yPos, int xPos) : base(yPos, xPos)
+        public Wall(int yPos, int xPos, bool explored) : base(yPos, xPos, explored)
         {
             Symbol = '#';
         }

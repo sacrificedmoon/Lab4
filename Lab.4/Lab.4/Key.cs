@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lab._4
 {
-    class Key : Tiles
+    public class Key : Tiles, IInteractable
     {
-        public Key(int yPos, int xPos) : base(yPos, xPos)
+        public Key(int yPos, int xPos, bool explored) : base(yPos, xPos, explored)
         {
             Symbol = 'K';
         }
@@ -17,6 +17,15 @@ namespace Lab._4
          Console.ForegroundColor = ConsoleColor.Blue;
          Console.Write("K");
          Console.ResetColor(); 
+        }
+
+        public void PlayerInteract()
+        {
+            Player.HasKey = true;
+            DungeonMap.roomObjectList.Remove(this);
+            DungeonMap.roomObjectList.Add(new Floor(Xpos, Ypos));
+            Console.WriteLine("You pick up a key.");
+            Console.ReadKey(true);
         }
     }
 }
