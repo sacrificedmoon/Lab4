@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="BlueDoor.cs" />
     <Compile Include="Floor.cs" />
+    <Compile Include="ItsATrap!.cs" />
     <Compile Include="RedDoor.cs" />
     <Compile Include="DungeonMap.cs" />
     <Compile Include="Exit.cs" />

@@ -19,11 +19,9 @@ namespace Lab._4
             Player.HasBlueKey = true;
             DungeonMap.roomObjectList.Remove(this);
             DungeonMap.roomObjectList.Add(new Floor(Xpos, Ypos, true));
-            Console.SetCursorPosition(0,13);
-            Console.WriteLine("You pick up a blue key.");
+
             Console.ReadKey(true);
-            Console.Clear();
-            Console.SetCursorPosition(0, 12);
+            Console.SetCursorPosition(8, 23);
             Console.WriteLine("Blue Key");
         }
     }
