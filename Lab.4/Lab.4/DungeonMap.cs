@@ -119,6 +119,8 @@ namespace Lab._4
             Player.x = newPlayerXPos;
 
             Player.numberOfMoves++;
+            Console.SetCursorPosition(0, 11);
+            Console.WriteLine("Score: " + Player.numberOfMoves);
             
             
         }
@@ -197,6 +199,7 @@ namespace Lab._4
         {
             while (true)
             {
+                
                 MovePlayer();
                 printMap();
             }
