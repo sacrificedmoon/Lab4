@@ -79,7 +79,11 @@ namespace Lab._4
                     }
                     else if (dungeonmap[y, x] == '#')
                     {
-                        roomObjectList.Add(new Wall(y, x, true));
+                        if (x <= 40 & y <= 0 | x <= 40 & y == 21 | x == 0 & y <= 21 | x == 40 & y <= 21)
+                        {
+                            roomObjectList.Add(new Wall(y, x, true));
+                        }
+                        roomObjectList.Add(new Wall(y, x, false));
                     }
                     else if (dungeonmap[y, x] == '.')
                     {
@@ -119,11 +123,6 @@ namespace Lab._4
                 {
                     Console.SetCursorPosition(tile.Ypos, tile.Xpos);
                     Console.Write(tile.Symbol);                    
-                }
-                else if(tile is Wall)
-                {
-                    Console.SetCursorPosition(tile.Ypos, tile.Xpos);
-                    Console.Write(tile.Symbol);
                 }
             }
         }
