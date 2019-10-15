@@ -48,7 +48,7 @@
     <Compile Include="Floor.cs" />
     <Compile Include="ItsATrap!.cs" />
     <Compile Include="RedDoor.cs" />
-    <Compile Include="DungeonMap.cs" />
+    <Compile Include="GameEngine.cs" />
     <Compile Include="Exit.cs" />
     <Compile Include="IInteractable.cs" />
     <Compile Include="BlueKey.cs" />

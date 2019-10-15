@@ -3,19 +3,20 @@
 namespace Lab._4
 {
     //Sofia Lindgren och Robin Nurmisto
+    //:::::::Highscore:::::::
+    //       Pontus 279
+    //       Simon 399
+    //       Anders 1332
+    //:::::::::::::::::::::::
     class Program
     {
-        static void map()
-        {
-
-        }
         static void Main(string[] args)
         {
-            var createMap = new DungeonMap();
+            var createMap = new GameEngine();
             createMap.PrintInfo();
-            createMap.DungeonObjects();
-            createMap.printMap();
-            createMap.CallPlayer();
+            createMap.CreateDungeonObjects();
+            createMap.PrintMap();
+            createMap.StartGameLoop();
             
             
 

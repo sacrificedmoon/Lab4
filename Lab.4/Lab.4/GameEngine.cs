@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab._4
 {
-    public class DungeonMap
+    public class GameEngine
     {
         public static List<Tiles> roomObjectList = new List<Tiles> { };
         Player player = new Player(1,1, true);
@@ -38,7 +38,7 @@ namespace Lab._4
                 { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'}
 
         };
-        public void DungeonObjects()
+        public void CreateDungeonObjects() 
         {
             for (int y = 0; y < dungeonmap.GetLength(0); y++)
             {
@@ -99,10 +99,15 @@ namespace Lab._4
             return null;
         }
 
-        public void printMap()
+        public void PrintMap() 
         {
             foreach (var tile in roomObjectList)
             {
+                //kanske ge ett namn på nedanstående uttryck
+                //bool VadUttrycketGör()
+                //{
+                //    return player.Ypos == tile.Ypos + 1 | player.Ypos == tile.Ypos + 2 | player.Ypos == tile.Ypos - 1 | player.Ypos == tile.Ypos - 2 | player.Ypos == tile.Ypos && player.Xpos == tile.Xpos + 1 | player.Xpos == tile.Xpos + 2 | player.Xpos == tile.Xpos - 1 | player.Xpos == tile.Xpos - 2 | player.Xpos == tile.Xpos;
+                //}
                 if (player.Ypos == tile.Ypos + 1 | player.Ypos == tile.Ypos + 2 | player.Ypos == tile.Ypos - 1 | player.Ypos == tile.Ypos - 2 | player.Ypos == tile.Ypos && player.Xpos == tile.Xpos + 1 | player.Xpos == tile.Xpos + 2 | player.Xpos == tile.Xpos - 1 | player.Xpos == tile.Xpos - 2 | player.Xpos == tile.Xpos)
                 {
                     tile.IsExplored = true;                    
@@ -112,7 +117,7 @@ namespace Lab._4
                 {
                     Console.SetCursorPosition(tile.Ypos, tile.Xpos);
                     Console.Write(tile.Symbol);
-                    
+
                     switch(tile.Symbol)
                     {
                         case 'R':
@@ -155,9 +160,9 @@ namespace Lab._4
                 }      
             }
         }
-        public void MovePlayer()
+        public void MakeNextTurn() 
         {
-            Input();
+            MovePlayerAndInteract();
             var newPlayerYPos = player.Ypos;
             var newPlayerXPos = player.Xpos;
 
@@ -169,7 +174,7 @@ namespace Lab._4
             Console.WriteLine("Score: " + Player.numberOfMoves); 
         }
         
-        public int Input()
+        public int MovePlayerAndInteract()
         {
             try
             {
@@ -195,6 +200,7 @@ namespace Lab._4
             switch (command)
             {
                 case ConsoleKey.DownArrow:
+                    
                     if (GetTileObject(player.Xpos +1, player.Ypos).CanPass() == true)
                     {
                         player.Xpos++;
@@ -249,12 +255,12 @@ namespace Lab._4
 
         }
 
-        public void CallPlayer()
+        public void StartGameLoop() //MakeNextTurn, Update, StartGameloop, whats up?
         {
             while (true)
             {       
-                MovePlayer();
-                printMap();
+                MakeNextTurn();
+                PrintMap();
                 PrintInfo();
             }
         }
