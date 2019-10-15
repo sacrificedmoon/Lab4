@@ -15,7 +15,11 @@ namespace Lab._4
 
         public void PlayerInteract()
         {
-
+            Console.Clear();
+            Console.WriteLine("Congratulations, you won! \nIt took you : " + Player.numberOfMoves + " steps to win!");
+            Console.WriteLine("To quit press any key..");
+            Console.ReadKey();
+            System.Environment.Exit(1);
         }
     }
 }

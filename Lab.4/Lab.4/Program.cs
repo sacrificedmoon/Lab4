@@ -17,6 +17,7 @@ namespace Lab._4
             createMap.printMap();
             createMap.CallPlayer();
             
+            
 
             
             
