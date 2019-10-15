@@ -20,9 +20,5 @@ namespace Lab._4
         {
             PlayerIcon = '@';            
         }
-
-        
-
-       
     }
 }
