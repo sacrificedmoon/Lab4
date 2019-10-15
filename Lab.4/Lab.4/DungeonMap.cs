@@ -44,7 +44,6 @@ namespace Lab._4
             {
                 for (int x = 0; x < dungeonmap.GetLength(1); x++)
                 {
-                    int temp = dungeonmap.GetLength(1);
                     switch (dungeonmap[y, x])
                     {
                         case 'E':
@@ -243,6 +242,11 @@ namespace Lab._4
         {
             Console.SetCursorPosition(43, 3);
             Console.Write("Use the arrow keys to move");
+            Console.SetCursorPosition(43, 5);
+            Console.Write("r & b are keys, R & B are doors");
+            Console.SetCursorPosition(43, 7);
+            Console.Write("Find the Exit, an 'E' to win");
+
         }
 
         public void CallPlayer()
