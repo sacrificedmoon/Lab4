@@ -12,10 +12,11 @@ namespace Lab._4
         static void Main(string[] args)
         {
             var createMap = new DungeonMap();
+            createMap.PrintInfo();
             createMap.DungeonObjects();
             createMap.printMap();
             createMap.CallPlayer();
-           
+            
 
             
             
