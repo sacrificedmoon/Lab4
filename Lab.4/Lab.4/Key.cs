@@ -6,25 +6,47 @@ using System.Threading.Tasks;
 
 namespace Lab._4
 {
-    public class Key : Tiles, IInteractable
+    public class BlueKey : Tiles, IInteractable
     {
-        public Key(int yPos, int xPos, bool explored) : base(yPos, xPos, explored)
+        public BlueKey(int yPos, int xPos, bool explored) : base(yPos, xPos, explored)
         {
-            Symbol = 'K';
+            Symbol = 'b';
         }
        
         public void PlayerInteract()
         {
             Console.SetCursorPosition(0, 11);
-            Player.HasKey = true;
+            Player.HasBlueKey = true;
             DungeonMap.roomObjectList.Remove(this);
             DungeonMap.roomObjectList.Add(new Floor(Xpos, Ypos, true));
             Console.SetCursorPosition(0,13);
-            Console.WriteLine("You pick up a key.");
+            Console.WriteLine("You pick up a blue key.");
             Console.ReadKey(true);
             Console.Clear();
             Console.SetCursorPosition(0, 12);
-            Console.WriteLine("K");
+            Console.WriteLine("Blue Key");
+        }
+    }
+
+    public class RedKey : Tiles, IInteractable
+    {
+        public RedKey(int yPos, int xPos, bool explored) : base(yPos, xPos, explored)
+        {
+            Symbol = 'r';
+        }
+       
+        public void PlayerInteract()
+        {
+            Console.SetCursorPosition(0, 11);
+            Player.HasRedKey = true;
+            DungeonMap.roomObjectList.Remove(this);
+            DungeonMap.roomObjectList.Add(new Floor(Xpos, Ypos, true));
+            Console.SetCursorPosition(0,13);
+            Console.WriteLine("You pick up a red key.");
+            Console.ReadKey(true);
+            Console.Clear();
+            Console.SetCursorPosition(0, 12);
+            Console.WriteLine("Red Key");
         }
     }
 }

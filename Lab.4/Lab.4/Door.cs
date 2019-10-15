@@ -6,28 +6,59 @@ using System.Threading.Tasks;
 
 namespace Lab._4
 {
-    public class Door : Tiles, IInteractable
+    public class BlueDoor : Tiles, IInteractable
     {
         public bool isOpen { get; private set; } = false;
-        public Door(int yPos, int xPos, bool explored) : base(yPos, xPos, explored)
+        public BlueDoor(int yPos, int xPos, bool explored) : base(yPos, xPos, explored)
         {
-            Symbol = 'D';
+            Symbol = 'B';
         }
 
         public override bool CanPass()
         {
-            return isOpen;
+           if(Player.HasBlueKey == true)
+            return true;
+           else 
+                return false;
         }
         public void PlayerInteract()
         {
-            if (isOpen = false && Player.HasKey)
+            if (isOpen = false && Player.HasBlueKey)
             {
                 isOpen = true;
-                Player.HasKey = false;
+                Player.HasBlueKey = false;
                 Console.SetCursorPosition(0, 12);
                 Console.WriteLine("You unlock the door with your key");
             }
             Console.ReadKey(true);
         }
     }
+    public class RedDoor : Tiles, IInteractable
+    {
+        public bool isOpen { get; private set; } = false;
+        public RedDoor(int yPos, int xPos, bool explored) : base(yPos, xPos, explored)
+        {
+            Symbol = 'R';
+        }
+
+        public override bool CanPass()
+        {
+           if(Player.HasRedKey == true)
+            return true;
+           else 
+                return false;
+        }
+        public void PlayerInteract()
+        {
+            if (isOpen = false && Player.HasRedKey)
+            {
+                isOpen = true;
+                Player.HasRedKey = false;
+                Console.SetCursorPosition(0, 12);
+                Console.WriteLine("You unlock the door with your key");
+            }
+            Console.ReadKey(true);
+        }
+    }
+
 }
