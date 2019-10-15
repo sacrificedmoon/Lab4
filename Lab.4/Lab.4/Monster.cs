@@ -14,7 +14,6 @@ namespace Lab._4
             monsterMinDmg = r.Next(2, 10);
             Symbol = 'M'; 
         }
-        
         public void PlayerInteract() 
         {
             Player.numberOfMoves += monsterMinDmg;

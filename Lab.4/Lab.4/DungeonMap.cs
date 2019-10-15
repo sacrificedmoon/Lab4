@@ -12,8 +12,6 @@ namespace Lab._4
         Player player = new Player(1,1, true);
         Monster monster = new Monster(5, 5, false);
 
-
-
         public char[,] dungeonmap = new char[,]
         {
                 { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#','#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'},
@@ -40,9 +38,6 @@ namespace Lab._4
                 { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'}
 
         };
-
-
-
         public void DungeonObjects()
         {
             for (int y = 0; y < dungeonmap.GetLength(0); y++)
@@ -50,55 +45,45 @@ namespace Lab._4
                 for (int x = 0; x < dungeonmap.GetLength(1); x++)
                 {
                     int temp = dungeonmap.GetLength(1);
-                    if (dungeonmap[y, x] == 'E')
+                    switch (dungeonmap[y, x])
                     {
-                        roomObjectList.Add(new Exit(y, x, false));
+                        case 'E':
+                            roomObjectList.Add(new Exit(y, x, false));
+                            break;
+                        case 'M':
+                            roomObjectList.Add(new Monster(y, x, false));
+                            break;
+                        case 'b':
+                            roomObjectList.Add(new BlueKey(y, x, false));
+                            break;
+                        case 'r':
+                            roomObjectList.Add(new RedKey(y, x, false));
+                            break;
+                        case 'B':
+                            roomObjectList.Add(new BlueDoor(y, x, false));
+                            break;
+                        case 'R':
+                            roomObjectList.Add(new RedDoor(y, x, false));
+                            break;
+                        case '#':
+                            if (x <= 40 & y <= 0 | x <= 40 & y == 21 | x == 0 & y <= 21 | x == 40 & y <= 21)
+                            {
+                                roomObjectList.Add(new Wall(y, x, true));
+                            }
+                            roomObjectList.Add(new Wall(y, x, false)); break;
+                        case '.':
+                            roomObjectList.Add(new Floor(y, x, false));
+                            break;
+                        case '@':
+                            roomObjectList.Add(new Player(y, x, true));
+                            break;
+                        case '!':
+                            roomObjectList.Add(new ItsATrap(y, x, false));
+                            break;
+                        default:
+                            break;
                     }
-                    else if (dungeonmap[y, x] == 'M')
-                    {
-                        roomObjectList.Add(new Monster(y, x, false));
-                    }
-
-                    else if (dungeonmap[y, x] == 'b')
-                    {
-                        roomObjectList.Add(new BlueKey(y, x, false));
-                    }
-
-                    else if (dungeonmap[y, x] == 'r')
-                    {
-                        roomObjectList.Add(new RedKey(y, x, false));
-                    }
-
-                    else if (dungeonmap[y, x] == 'B')
-                    {
-                        roomObjectList.Add(new BlueDoor(y, x, false));
-                    }
-                    else if (dungeonmap[y, x] == 'R')
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        roomObjectList.Add(new RedDoor(y, x, false));
-                        Console.ResetColor();
-                    }
-                    else if (dungeonmap[y, x] == '#')
-                    {
-                        if (x <= 40 & y <= 0 | x <= 40 & y == 21 | x == 0 & y <= 21 | x == 40 & y <= 21)
-                        {
-                            roomObjectList.Add(new Wall(y, x, true));
-                        }
-                        roomObjectList.Add(new Wall(y, x, false));
-                    }
-                    else if (dungeonmap[y, x] == '.')
-                    {
-                        roomObjectList.Add(new Floor(y, x, false));
-                    }
-                    else if (dungeonmap[y,x] == '@')
-                    {
-                        roomObjectList.Add(new Player(y, x, true));
-                    }
-                    else if (dungeonmap[y,x] == '!')
-                    {
-                        roomObjectList.Add(new ItsATrap(y, x, false));
-                    }
+                    
                 }
             }
         }
@@ -117,7 +102,6 @@ namespace Lab._4
 
         public void printMap()
         {
-            
             foreach (var tile in roomObjectList)
             {
                 if (player.Ypos == tile.Ypos + 1 | player.Ypos == tile.Ypos + 2 | player.Ypos == tile.Ypos - 1 | player.Ypos == tile.Ypos - 2 | player.Ypos == tile.Ypos && player.Xpos == tile.Xpos + 1 | player.Xpos == tile.Xpos + 2 | player.Xpos == tile.Xpos - 1 | player.Xpos == tile.Xpos - 2 | player.Xpos == tile.Xpos)
@@ -169,62 +153,11 @@ namespace Lab._4
                             Console.ResetColor();
                             break;
                     }
-                }
-               
+                }      
             }
         }
-
-        //public void SetColor()
-        //{
-        //    if (tile is RedKey)
-        //    {
-        //        Console.ForegroundColor = ConsoleColor.Red;
-        //        Console.SetCursorPosition(tile.Ypos, tile.Xpos);
-        //        Console.Write(tile.Symbol);
-        //        Console.ResetColor();
-        //    }
-        //    else if (tile is RedKey)
-        //    {
-        //        Console.ForegroundColor = ConsoleColor.Red;
-        //        Console.SetCursorPosition(tile.Ypos, tile.Xpos);
-        //        Console.Write(tile.Symbol);
-        //        Console.ResetColor();
-        //    }
-        //    else if (tile is BlueDoor)
-        //    {
-        //        Console.ForegroundColor = ConsoleColor.Blue;
-        //        Console.SetCursorPosition(tile.Ypos, tile.Xpos);
-        //        Console.Write(tile.Symbol);
-        //        Console.ResetColor();
-        //    }
-        //    else if (tile is BlueKey)
-        //    {
-        //        Console.ForegroundColor = ConsoleColor.Blue;
-        //        Console.SetCursorPosition(tile.Ypos, tile.Xpos);
-        //        Console.Write(tile.Symbol);
-        //        Console.ResetColor();
-        //    }
-        //    else if (tile is ItsATrap)
-        //    {
-        //        Console.ForegroundColor = ConsoleColor.DarkYellow;
-        //        Console.SetCursorPosition(tile.Ypos, tile.Xpos);
-        //        Console.Write(tile.Symbol);
-        //        Console.ResetColor();
-        //    }
-        //    else if (tile is Monster)
-        //    {
-        //        Console.ForegroundColor = ConsoleColor.DarkMagenta;
-        //        Console.SetCursorPosition(tile.Ypos, tile.Xpos);
-        //        Console.Write(tile.Symbol);
-        //        Console.ResetColor();
-        //    }
-        //}
         public void MovePlayer()
         {
-
-            Player.y = player.Ypos;
-            Player.x = player.Xpos;
-
             Input();
             var newPlayerYPos = player.Ypos;
             var newPlayerXPos = player.Xpos;
@@ -234,9 +167,7 @@ namespace Lab._4
 
             Player.numberOfMoves++;
             Console.SetCursorPosition(0, 22);
-            Console.WriteLine("Score: " + Player.numberOfMoves);
-            
-            
+            Console.WriteLine("Score: " + Player.numberOfMoves); 
         }
         
         public int Input()
@@ -307,20 +238,14 @@ namespace Lab._4
 
             }
         }
-
-
-
         public void CallPlayer()
         {
             while (true)
-            {
-                
+            {       
                 MovePlayer();
                 printMap();
             }
-            
         }
-       
     }
 }
 
