@@ -17,8 +17,12 @@ namespace Lab._4
         {
             Xpos = xposition;
             Ypos = yposition;
+            IsExplored = explored;
         }
-
+        public virtual bool CanPass()
+        {
+            return true;
+        }
     }
 }
  
